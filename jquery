@@ -1,0 +1,37 @@
+###创建并插入节点
+
+- 创建节点：$(<div class="eg">这里是文本</div>)
+- 在元素内部的尾部插入：元素.append(要插入的元素),要插入的元素.appendTo(元素)；
+- 在元素内部的前面插入：元素.prepend(要插入的元素),要插入的元素.prependTo(元素)；
+- 在元素前后插入（兄弟关系）：after(),before();insetAfter(),insetBedore();
+- 包裹元素（父子关系，单个）：wrap(),$('a').wrap(function() { return '<div class="' + $(this).text() + '" />';}); $('p').wrap('<div></div>');
+- 包裹元素（父子关系，多个）：wrapAll(),$('p').wrapAll('<div></div>');给所以p增加div父元素。
+- 包裹原色（父子关系）:wrapInner(),$('p').wrapInner('<div></div>')；将p的内容用div包裹。
+###移出节点
+
+- empty(),移除被选元素内部的所有内容，被选元素本身不被删除；其实是清空，而不是删除；
+- detach(),移除元素，但是保留它绑定的事件和数据； p = $("p").detach()；$("body").append(p);
+- remove(),移除所选元素及其内容，和绑定事件，相关jq数据；remove(":contains('3')"),可以通过选择器删除指定节点；
+- unwrap(), $('p').unwrap('<div></div>')；去掉包裹p的div
+
+###复制节点
+
+-clone()浅拷贝，clone(true)深拷贝，会复制所选元素集合，以及绑定的事件。
+
+###替换节点
+
+- replaceWith(new content),用新内容代替匹配元素，并返回被删除的元素集合。$(".right > div:first p:eq(1)").replaceWith('<a style="color:red">replaceWith替换第二段的内容</a>')
+- (new content).replaceAll()  $('<a style="color:red">replaceAll替换第六段的内容</a>').replaceAll('.right > div:last p:last');
+
+###查找节点
+- children(),儿子元素；
+- find(),找到后代元素，只在后代遍历不包括本身;
+- parent(),父元素，向上查找一级
+- parents(),向上查找一直到祖先元素
+- closest(),向上查找到最近的匹配选择器的祖先元素
+- next(),同辈中紧跟他后面的一个；
+- prev(),同辈中他的前一个；
+- sibling（），同辈中的前后兄弟元素,不止是紧跟的前后两个，而是所有同辈兄弟元素。
+- add(),可以传递选择器，DOM，HTML片段$("li").add("p")
+- each(),each是一个for循环的包装迭代器,each通过回调的方式处理，并且会有2个固定的实参，索引与元素,each回调方法中的this指向当前迭代的dom元素
+
