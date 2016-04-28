@@ -1,0 +1,19 @@
+#css居中问题
+
+###水平居中 子元素不浮动！
+
+- margin:0 auto;针对子元素
+- text-align:center;针对父元素
+
+###垂直居中
+
+- line-height=height
+
+
+###万能方法
+- 父元素relative，子元素,必须有宽高{width:100px;height:80px;position:absolute;top:50%;left:50%;margin-left:50px;margin-top:40px}
+- .Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  }绝对居中
