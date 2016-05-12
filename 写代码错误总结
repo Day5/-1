@@ -1,0 +1,27 @@
+5/12
+$('#checkboxId').prop("checked")==true;可以检验复选框是否选中
+$('#checkboxId').attr("checked")==true;无法检验
+
+$("#checkboxId")get(0).checked //转换为DOM
+$("#checkboxId")is(":checked") 
+
+cookie问题：
+$(function () {
+  //检查是否有cookie
+   var cookiename='username';
+   if($.cookie(cookiename)){
+     $("#account").val($.cookie(cookiename));
+   }//要在页面渲染完成后马上进行检验，是否有cookie。不能在click出发后再检验！
+  $("#login").bind('click', function () {
+       if($('#remember').prop("checked")==true){
+         $.cookie(cookiename,$("#account").val(),{path:'/',expires:7});
+       }else{
+         $.cookie(cookiename,"",{path:'/'})
+       }
+   
+    //cookie结束
+ })
+ const 和 let
+    const formData = { 'userId': 'test1231', 'pwd': '1234' };
+    const是常量赋值，值不可为变量而且要是初始化，有块级作用域 
+    let可进行变量复制
